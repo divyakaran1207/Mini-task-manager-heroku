@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {DndProvider} from "react-dnd"
+import {HTML5Backend} from "react-dnd-html5-backend"
+import Listuser from "./Listuser";
+import Createtask from "./Createtask";
+import Updatetask from "./Updatetask";
+import Deletetask from "./Deletetask";
+import Listtask from "./Listtask";
+
+export const HEADER = {
+  AuthToken: "UrM4YHgb1FcqEf1tuKwmAMMX5MxFZ12a",
+};
 
 function App() {
   return (
+    <DndProvider backend={HTML5Backend}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Mini-Task_manager</h1>
+      <Listuser />
+      <div className="Createtask">
+      <Createtask />
+      </div>
+      <div className="Updatetask">
+      <Updatetask />
+      </div>
+      <div className="Deletetask">
+      <Deletetask />
+      </div>
+      <div className="Listtask">
+      <Listtask />
+      </div>
     </div>
+    </DndProvider>
   );
 }
 
